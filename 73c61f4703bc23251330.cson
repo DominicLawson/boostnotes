@@ -1,0 +1,39 @@
+type: "MARKDOWN_NOTE"
+folder: "5dff1a9e2bfe696c8d39"
+title: "Operators Cheat Sheet"
+content: '''
+  #### Operators Cheat Sheet  
+  
+  Precedence | Description | Operator
+  --- | --- | --- 
+  1  | Postfix increment and decrement | ++, --
+    | Function-like call  |  `<func>(<args...>)`
+    | Array subscripting  |  `<array>[<index>]`
+    | Member access  | ` <object>.<member>`
+    | Parentheses  |  `(<statement>)`
+  2  |  Prefix increment and decrement   | ++, --
+    | Unary plus and minus  |  +, -
+    | Unary operations  |  delete
+    | Logical  |  NOT !
+    | Bitwise  |  NOT ~
+  3  |  Exponentiation  |  **
+  4  |  Multiplication, division, and modulo  |  *, /, %
+  5  |  Addition and subtraction  |  +, -
+  6   | Bitwise shift operators   | <<, >>
+  7  |  Bitwise AND  |  &  
+  8  |  Bitwise XOR ^
+  9  |  Bitwise OR |
+  10  |  Inequality operators  |  <, >, <=, >=
+  11   | Equality operator, does-not-equal operator  |  ==, !=
+  12   | Logical AND  |  &&
+  13  |  Logical OR  |  ||
+  14  |  Ternary operator   | `<conditional> ? <if-true> : <if-false>`
+  15  |  Assignment operators =, |=, ^=, &=, <<=, >>=, +=, -=, *=, /=, %=
+  16  |  Comma operator   | ,
+'''
+tags: [
+  "ethereum"
+]
+isStarred: false
+createdAt: "2017-08-06T07:21:12.228Z"
+updatedAt: "2017-08-13T06:44:40.883Z"

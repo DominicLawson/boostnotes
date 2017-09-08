@@ -1,0 +1,19 @@
+type: "MARKDOWN_NOTE"
+folder: "5dff1a9e2bfe696c8d39"
+title: "Using parity with geth"
+content: '''
+  # Using parity with geth
+  7 minute video here: https://www.youtube.com/watch?v=sta-p5d1blQ
+  
+  install mist
+  install parity
+  go to parity install location
+  place parity.exe shortcut on desktop
+  right click on the shortcut
+  add --geth to the end of the target in the shortcut tab:
+      "C:\\Program Files\\Ethcore\\Parity\\parity.exe" --geth --force-ui
+'''
+tags: []
+isStarred: false
+createdAt: "2017-07-11T18:35:33.696Z"
+updatedAt: "2017-07-12T03:55:40.913Z"

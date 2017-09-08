@@ -1,0 +1,34 @@
+type: "MARKDOWN_NOTE"
+folder: "5dff1a9e2bfe696c8d39"
+title: "Common Operation Gas Costs"
+content: '''
+  # Common Operation Gas Costs
+  Operation Name | Gas Cost | Description
+  ---|---|---
+  step  | 1 | Default amount per execution cycle
+  stop | 0 | Free
+  suicide | 0 | Free
+  sha3 | 20 | SHA-3 hash function
+  sload| 20| Gets from permanent storage
+  sstore |100| Puts into permanent storage
+  balance |20| Queries account balance
+  create |100| Contract creation
+  call |20| Initiating a read-only call
+  memory |1| Every additional word when expanding memory
+  txdata |5| Every byte of data or code for a transaction
+  transaction |500| Base fee transaction
+  contract creation |53,000| Changed in homestead from 21,000  
+  
+  
+  #### <b>The combination of total gas used multiplied by gas price paid that results in the total fee accrued by a given transaction.</b> 
+'''
+tags: [
+  "blockchain"
+  "crypto"
+  "ethereum"
+  "solidity"
+  "gas"
+]
+isStarred: false
+createdAt: "2017-07-12T02:53:09.105Z"
+updatedAt: "2017-07-12T02:54:11.626Z"

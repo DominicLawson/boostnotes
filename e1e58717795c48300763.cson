@@ -1,0 +1,153 @@
+type: "MARKDOWN_NOTE"
+folder: "5dff1a9e2bfe696c8d39"
+title: "Introducing Ethereum and Solidity"
+content: '''
+  # Introducing Ethereum and Solidity
+  
+  #### Chapter 4 - solidity
+  <hr>
+  
+  Solidity is a new programming language used to write programs called smart contracts, which can be run by the EVM. This new language is a hodgepodge of conventions from networking, assembly language, and web development
+  
+  pg. 70 - operations have access to three types of space in which to store data:
+  * *The stack*, a container in which values can be added or removed
+  (pushed or popped). Stack values are defined within a method.
+  * *Dynamic memory*, also known as the heap, an infinitely
+  expandable byte array. This resets when the program finishes.
+  * A *key/value* store for account balances and, in the case of
+  contract addresses, Solidity code.  
+  
+  Solidity contracts can also access certain attributes about the incoming message, such as the value, sender, and data of the incoming message, as well as the data from the block header.  
+  
+    
+  Solidity is a high-level contract-oriented language with similarities to JavaScript and C languages. 
+  
+  Other three languages:  
+  * Serpent (similar to Python)  
+  * Lisp-Like Language (LLL)  
+  * Mutan (deprecated)  
+  
+  syntax like JavaScript, but it is specially designed to compile into bytecode for the Ethereum Virtual Machine.  
+  
+  EVM runs code that is fully deterministic; the same algorithms with the same inputs will always yield the same results. You can prove this mathematically  
+  
+  Solidity is statically typed, supports inheritance, libraries, and complex user-defined types  
+  
+  can do assembly inline  
+  
+  <hr>
+  
+  You can write loops in Solidity, or you can create them using JUMP and JUMPI instructions. This jumps ahead a specified number of steps in the program counter. Recall that the program counter keeps track of the number and order of computational steps in a given program as it is being executed on the EVM. This is just one way that Solidity and EVM opcodes can be used together to create a contract that is mostly expressive and readable, but also cheap to run. It’s important to point out that because of the way gas price is calculated, some functionality might be easier to enforce or less expensive to execute if written using opcodes, and this can be especially useful if you’re writing your own language library.  
+  
+  Smart contracts are distinct from distributed applications, or dapps, even though both are distributed and application-like. a dapp is a gUi application that uses ethereum smart contracts on the back end, in lieu of a conventional database and web application hosting provider. dapps may be accessed through the mist browser or over the Web.  
+  
+  
+  <h1><u>The way to prevent ambiguous code from losing your money is to test vigorously</u></h1>
+  <hr>  
+  
+  there are only three requirements for deploying a simple contract in Solidity:
+  1.  A text editor such as TextEdit on macOS, Gedit on Ubuntu, or
+  Notepad on Windows. Be sure to switch to plain-text mode,
+  which strips away all fonts, underlining, bold, hyperlinks, and
+  italics. (Never use rich text to write code!)
+  2.  The Mist wallet, covered in Chapter 2.
+  3.  The Browser Solidity Compiler located at https://ethereum.
+  github.io/browser-solidity/ or available at the following
+  shortlink:
+  http://compiler.eth.guide  
+  
+  all that you need to do to “upload” a contract is to copy-paste your Solidity code from your text editing application into the Solidity Browser Compiler. From there, you’ll compile the code into bytecode, and copy-paste that bytecode into Mist.  
+  
+  In Solidity, you can also declare whether you want certain functions to be available outside that program. These designations are as follows:
+  •  public: Visible externally and internally (an accessor function for storage/state variables is created)
+  •  private: Visible only in the current contract (default)  
+  
+  functions are private by default!!  
+  <hr>
+  
+  #### <b>Value Types</b>
+  When writing Solidity code, you can tell the computer what type of value to expect in each algorithmic instruction  
+  
+  <b>Booleans</b>  
+  Known in code as bool, the Booleans are true/false expressions that evaluate to true or false.
+  
+  <b>Signed and Unsigned Integers</b>  
+  Known in code as int and uint, these are numbers. They can be negative if they have a sign, or minus, indicating they are signed. Unsigned integers are thus positive numbers.  
+  
+  <b>Addresses</b>
+  The address type holds a 20-byte value, which is the size of an Ethereum address (40 hex characters, or 160 bits). Address types also have member types.
+  
+  <b>Members of Addresses</b>
+  These two members allow you to query the balance of an account, or to transfer ether to an account. Be careful with transfer in smart contracts. It’s better to use a pattern where the recipient is allowed to withdraw the money, than to have a contract initiating transfers.
+  •  balance
+  •  transfer
+  
+  <hr>
+  
+  #### Address-Related Keywords
+  Keywords come with the Solidity language. They are methods, so to speak, for using the language in predetermined ways.
+  
+  • `<address>.balance (uint256)`: Returns the balance of the address in wei
+  •  `<address>.send(uint256 amount)` returns (bool): Sends given amount of wei to address, and returns false on failure
+  •  `this(current contract’s type)`: Explicitly converts to the address
+  •  `selfdestruct(address recipient)`: Destroys the current contract, sending its funds to the given address  
+  
+  it is possible to query the balance of the current contract by using the keyword this.balance  
+  
+  #### Less common types:  
+  * Dynamically sized byte arrays  
+  •  Fixed-point numbers  
+  •  Rational and integer literals  
+  •  String literals  
+  •  Hexadecimal literals  
+  •  Enums  
+  
+  
+  #### Complex (Reference) Types
+  Generally speaking, types in Solidity are allotted 256 bits of memory in the EVM’s storage; that’s 2,048 characters. Types that are any longer than that can incur more-significant gas costs to move around. You’ll need to choose carefully when assigning persistent storage in the EVM’s stack. Here are the complex types that exceed 256 bits:
+  •  Arrays  
+  •  Array literals / inline arrays  
+  •  Structs  
+  •  Mappings  
+  Arrays, structs, and other complex types have a data location that can be used by Solidity programmers to manipulate whether they are stored dynamically in memory or persistently stored. This can help you manage fees.  
+  <hr>  
+  
+  #### Global Special Variables, Units, and Functions  
+  Global special variables can be called by any Solidity smart contract on the EVM; they’re built in to the language.  
+  Most of them return information about the Ethereum chain.  
+  Units of time and ether are also globally available. Literal numbers can take a suffix of wei, finney, szabo or ether and will auto-convert between subdenominations of Ether.   
+  Ether currency numbers without a suffix are assumed to be Wei.
+  Time-related suffixes can be used after literal numbers to convert between units of time. Here, seconds are the base unit, and units are treated as general units. Owing to the existence of leap years, be careful when using these suffixes to calculate time, as not all years have 365 days, and not days have 24 hours.
+  * 1 == 1 seconds  
+  * 1 minutes == 60 seconds  
+  * 1 hours == 60 minutes  
+  * 1 days == 24 hours  
+  * 1 weeks = 7 days  
+  * 1 years = 365 days    
+  
+  <hr>
+  
+  #### Block and Transaction Properties  
+  
+  Note that these global variables are only available in Solidity smart contracts.  
+  
+  block.blockhash(uint blockNumber) returns (bytes32):
+  Hash of the given block, works for only the 256 most recent blocks
+  •  block.coinbase (address): Current block miner’s address
+  •  block.difficulty (uint): Current block difficulty
+  •  block.gaslimit (uint): Current block gas limit
+  •  block.number (uint): Current block number
+  •  block.timestamp (uint): Current block timestamp  
+  •  msg.gas (uint): Remaining gas
+  •  msg.sender (address): Sender of the message (current call)
+  •  msg.sig (bytes4): First 4 bytes of the call data (function identifier)
+  •  msg.value (uint): Number of wei sent with the message
+  •  now (uint): Current block timestamp (alias for block. timestamp)
+  •  tx.gasprice (uint): Gas price of the transaction
+  •  tx.origin (address): Sender of the transaction (full call chain)
+  •  msg.data (bytes): Complete call data
+'''
+tags: []
+isStarred: false
+createdAt: "2017-07-12T19:31:20.103Z"
+updatedAt: "2017-08-06T07:20:53.346Z"

@@ -1,0 +1,80 @@
+type: "MARKDOWN_NOTE"
+folder: "5dff1a9e2bfe696c8d39"
+title: "Introducing Ethereum and Solidity"
+content: '''
+  # Introducing Ethereum and Solidity
+  
+  #### Chapter 2 - the mist browser
+  ---
+  pg. 26- Asymmetric cryptography is a method of sending secure messages back and forth over a network  
+  Its called “asymmetric” because each party has a pair of two different, but mathematically related, keys.  
+  public key cryptographic communications don’t require a secure channel between parties
+  
+  <b>tools for developers</b>
+  Developers will want to check out these three tools in addition to Mist:
+  •  MetaMask Chrome extension (useful for everyone)
+  •  Geth (useful for intermediate developers)
+  •  Parity (useful for advanced developers)
+  
+  pg. 29 - MetaMask does not download the entire blockchain to
+           your computer; nor can it mine transactions and earn ether. 
+           
+  pg. 30 - If you plan on using a Mist wallet through your parity node, you’ll need to manually start parity before you open Mist. otherwise, Mist will connect via its own node. Under the hood, the Mist browser runs a Geth node
+  
+  pg. 34 - There is no Forgot password functionality in the ethereum network. That’s because your password is only for this local instance of the Mist wallet; it’s not saved on the ethereum blockchain. In fact, your private key is all you need to re-create this account on any other computer running Mist. The password you create merely protects you from
+  an interloper sitting down at your computer and spending your money through the Mist interface. It does not stop anyone from stealing your private keys from your computer’s file system, if it’s left unprotected. 
+  
+  pg. 38 - In Ethereum lingo, accounts created and used by humans are called externally owned accounts. This is in contrast to contract accounts, as in an address that is occupied by a smart contract.
+  
+  Note external accounts aren’t always controlled by humans. sometimes they’re controlled by trusted endpoints somewhere else. The point is, they’re external to the eVM. If this distinction is confusing, remember that contracts can take actions in lieu of people in the Ethereum network. You can send value (ether) to people or you can send
+  it to a smart contract, which will take some automated action. For example, a remittance contract might take the sender’s deposit, split it in three, and send the amounts onward  to three different human relatives. In this way, contracts can act in lieu of humans to automate tasks within a decentralized organization or to mediate transactions between individuals that would otherwise need a counterparty.
+  
+  
+  A key pair is issued when you register a new account.
+  •  You can register for as many accounts as you like.
+  •  Creating an account (a key pair) can be done by any Ethereum node (even when it is offline).
+  •  There is no master list of key pairs or accounts anywhere on Earth.
+  •  Account numbers are not associated with you, your identity, or your computer.
+  •  You can access the Ethereum network with your private key from any computer running an Ethereum node.
+  
+  
+  pg. 43 -  block is a unit of time that encompasses a certain number of
+  transactions, just as a heartbeat is a period of time in which a certain quantity of blood is moved through an animal’s body. 
+  
+  Smart contracts may be uploaded to the network in a given block, but may not
+  actually send any messages or transactions until a much later block.
+  
+  GAS  - a metric indicating the number of steps the EVM will have
+  to take to complete the instructions in the transaction.
+  
+  
+  pg. 44 - For context, it’s true that every operation costs some amount of gas; most operations cost 1 unit of gas. A complex transaction can cost hundreds of units of gas. However, in dollar terms, this adds up to very little.
+  
+  
+  Denominations of ether. In the Unit column at left, the equivalent bitcoin
+  denominations are provided in parentheses
+  Unit | Wei Value | Number of Wei
+  --- | --- | --- 
+  Wei |1 wei| 1|
+  Kwei (babbage) |1 3 wei |1,000
+  Mwei (lovelace)| 1 6 wei |1,000,000
+  Gwei (shannon)| 1 9 wei |1,000,000,000
+  Microether (szabo) | 1 12 wei |1,000,000,000,000
+  Milliether (finney) | 1 15 wei |1,000,000,000,000,000
+  Ether | 1 18 wei |1,000,000,000,000,000,000
+  
+  
+  
+  
+  
+'''
+tags: [
+  "Ethereuem"
+  "Crypto"
+  "Blockchain"
+  "Solidity"
+  "Mist"
+]
+isStarred: false
+createdAt: "2017-07-10T23:01:08.858Z"
+updatedAt: "2017-07-11T18:25:10.189Z"

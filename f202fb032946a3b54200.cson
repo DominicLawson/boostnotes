@@ -1,0 +1,17 @@
+type: "MARKDOWN_NOTE"
+folder: "5dff1a9e2bfe696c8d39"
+title: "Finding stuff about golang"
+content: '''
+  ## Finding stuff about golang
+  
+  golang.org
+    - packages page helpful
+    - sub repositories = packages not as strongly supported, but may be fully supported in the future
+    - godoc.org
+    - project tab is good to keep track of changes and such
+    -- gocode for auto completion
+'''
+tags: []
+isStarred: false
+createdAt: "2017-04-07T22:07:07.827Z"
+updatedAt: "2017-04-07T22:42:39.871Z"

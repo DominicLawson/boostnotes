@@ -1,0 +1,51 @@
+type: "MARKDOWN_NOTE"
+folder: "5dff1a9e2bfe696c8d39"
+title: "Timescable.db: Architecture, Concepts, Terminology"
+content: '''
+  ## Timescable.db: Architecture, Concepts, Terminology 
+  ---  
+  
+  This single-table view, which we call a ​hypertable​, is thus comprised of many ​chunks​. Chunks are created by partitioning the hypertable's data in either one or two dimensions: by a time interval, and by an (optional) "partition key" such as device ID, location, user id, etc. We sometimes refer to this as partitioning across "time and space".
+  
+  ### Terminology 
+  
+  #### Hyptertables - 
+  
+  The primary point of interaction with your data is a hypertable, the abstraction of a single continuous table across all space and time intervals, such that one can query it via vanilla SQL.  
+  
+  A hypertable is defined by a standard schema with column names and types, with at least one column specifying a time value, and one (optional) column specifying an additional partitioning key.  
+  
+  A single TimescaleDB deployment can store multiple hypertables, each with different schemas.  
+  
+  Creating a hypertable in TimescaleDB takes two simple SQL commands: `​CREATE TABLE​` (with standard SQL syntax), followed by `​SELECT create_hypertable()​.`
+  
+  Indexes on time and the partitioning key are automatically created on hypertables, although additional indexes can also be created (and TimescaleDB supports the full range of PostgreSQL index types).  
+  
+  #### Chunks  
+  
+  nternally, TimescaleDB automatically splits each hypertable into ​chunks​, with each chunk corresponding to a specific time interval and a region of the partition key’s space (using hashing).
+  These partitions are disjoint (non-overlapping), which helps the query planner to minimize the set of chunks it must touch to resolve a query.
+  
+  Each chunk is implemented using a standard database table. (In PostgreSQL internals, the chunk is actually a "child table" of the "parent" hypertable.)  
+  
+  #### Single Node vs Clustering  
+  TimescaleDB performs this extensive partitioning both on ​single-node​ deployments as well as ​clustered​ deployments (in development). While partitioning is traditionally only used for scaling out across multiple machines, it also allows us to scale up to high write rates (and improved parallelized queries) even on single machines.
+  
+  The current open-source release of TimescaleDB only supports single-node deployments. 
+  
+  ### Time-Oriented Features  
+  Includes number of time-oriented features that aren't found in traditional relation databases.  
+  
+  #### Time-Oriented Analytics  
+  New functions  
+   * Time Bucketing: More powerful version of the standard `date trunc` functoin, it allows for arbitrary time intervals. eg., 5 mins, 6 hours, etc. As well as flexible groupins and offsets, instead of just second, minute, hour, etc  
+  * Last and first aggregates: Allow you to get the value of one column as ordered by another. For instance, `last( temperature , time )` will return the latest temp value based on time within a group, such as an hour.
+'''
+tags: [
+  "timescale.db"
+  "timescale"
+  "Timescable.db:_Architecture_&_Concepts"
+]
+isStarred: false
+createdAt: "2017-08-12T21:46:59.655Z"
+updatedAt: "2017-08-13T07:26:20.975Z"

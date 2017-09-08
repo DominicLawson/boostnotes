@@ -1,0 +1,18 @@
+type: "MARKDOWN_NOTE"
+folder: "5dff1a9e2bfe696c8d39"
+title: "GO Plural Sight"
+content: '''
+  ## GO Plural Sight
+  Fully Compiled, compiler getting better
+  Simple and fun, only 25 keywords
+  concurrency - language level support
+    - communicating sequential processes
+    - also known as actor(?) model, this is what erlang       uses  
+    
+  statically typed - does not approach in the same way, compiler good at inferring.  
+  The Go Gopher - created by renee french.
+'''
+tags: []
+isStarred: false
+createdAt: "2017-04-07T21:54:23.754Z"
+updatedAt: "2017-04-07T22:06:34.956Z"

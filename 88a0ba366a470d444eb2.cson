@@ -1,0 +1,69 @@
+type: "MARKDOWN_NOTE"
+folder: "5dff1a9e2bfe696c8d39"
+title: "Node JS: Callbacks"
+content: '''
+  ### Node JS: Callbacks
+  <b>This is the most important topic to understand if you want to understand how to use node</b>
+  * Nearly everything in node uses callbacks
+  * not invented by node, just part of JS
+  
+  #### They are functions that are executed asynchronously.
+  
+  ```
+  var fs = require('fs') // require is a special function provided by node
+  var myNumber = undefined // we don't know what the number is yet since it is stored in a file
+  
+  function addOne() {
+    fs.readFile('number.txt', function doneReading(err, fileContents) {
+      myNumber = parseInt(fileContents)
+      myNumber++
+    })
+  }
+  
+  addOne()
+  
+  console.log(myNumber) // logs out undefined -- this line gets run before readFile is done
+  ```
+  
+  Usually things that have to talk to hard drives or networks will be asynchronous. If they just have to access things in memory or do some work on the CPU they will be synchronous. The reason for this is that I/O is reallyyy reallyyy sloowwww. A ballpark figure would be that talking to a hard drive is about 100,000 times slower than talking to memory (e.g. RAM).
+  
+  <u>When we run this program all of the functions are immediately defined, but they dont all execute immediately. </u>
+  
+  Callbacks are just functions that get executed at some later time. 
+  
+  Callbacks are used when youi dont know <b>WHEN</b> some async operation will complete, but you do know <b>WHERE</b> the operation will complete, the last line of the async function!
+  * top to bottom order of async functions does not really matter  
+  * First split code into functions
+  * then use callbacks to declare if one function depends on another function funishing.
+  
+  placing the console.log statement with a callback:
+  
+  ```
+  var fs = require( 'fs' );
+  var myNumber = undefined //still unknown..
+  
+  function addOne( callback ) {
+    fs.readFile( 'number.txt', function doneReading( err , fileContents ) {
+      myNumber = parseInt( fileContents );
+      myNumber++;
+      callback();
+    });
+  };
+  
+  // placing the console.log in a function, so we can call it when we want
+  function logMyNumber() {
+    console.log( myNumber );
+  };
+  
+  //invoke the addOne function, passing the logMyNumber function as a parameter to the addOne function. Essentially, a callback tells a function what to do when it is finished processing some sort of data (or whatever you are trying to do).
+  ```
+  
+  Now the logMyNumber function can get passed in as an argument that will become the callback variables inside the addOne function. after readFile is done, the callback variable will be invoked ( callback() ). Only functions can be invoked, so if you pass in anything other than a function it will throw an error!
+'''
+tags: [
+  "nodejs"
+  "node"
+]
+isStarred: false
+createdAt: "2017-05-14T22:09:24.684Z"
+updatedAt: "2017-05-15T00:01:51.633Z"
